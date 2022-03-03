@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+</head>
+<body>
+{% include 'links.html'%}
+{% include 'navbar.html'%}
+<section class="section-padding" id="booking">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12 mx-auto">
+                <div class="booking-form">
+
+                    <h2 class="text-center mb-lg-3 mb-2">Add Review</h2>
+
+                    <form role="form" action="{% url 'ReviewView' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-12"><label>enter name
+                                <input style="outline: 2px solid black;" type="text" name="name" id="name" class="form-control" required>
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-12"><label>enter review title
+                                <input style="outline: 2px solid black;" type="text" name="tag" id="review_tag"  class="form-control"  required>
+                                </label>
+                            </div>
+
+                            <div class="col-lg-6 col-12"><label>choose your icon:
+                                <input  style="outline: 2px solid black;" type="file" name="image" id="image"  class="form-control">
+                                </label>
+                            </div>
+
+                            <div   class="col-lg-6 col-12 mt-2"><label>choose patient status<br>
+                               <select style="outline: 2px solid black;" class="col-lg-6 col-12 mt-2" name="patient_status">
+                                   <option value="patient">patient</option>
+                                   <option value="new_patient">new_patient</option>
+                                   <option value="partially_recovered">partially_recovered</option>
+                                   <option value="Recovered">Recovered</option>
+
+                               </select>
+                            </label>
+
+                            </div>
+
+                            <div class="col-12"><label>Enter your review</label>
+                                <textarea  style="outline: 2px solid black;" class="form-control" rows="5" id="review" name="review" ></textarea>
+                            </div>
+
+                            <div class="col-lg-3 col-md-4 col-6 mx-auto">
+                                <button type="submit" class="form-control" id="submit-button">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
